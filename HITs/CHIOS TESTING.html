@@ -1,0 +1,124 @@
+<html><head><title>HIT</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script></head><body><form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit"><input type="hidden" value="" name="assignmentId" id="assignmentId" /><h3>Geofence the store at the given location (notice: new changed instructions.) (PLEASE confirm store identity by zooming in with Google Maps and Google StreetView)</h3>
+
+<div class="highlight-box">
+<ul>
+	<li>Draw a complete polygon around the target store&nbsp;(by clicking on the map). If you don't like the first polygon you drew, just draw another one. Only your last drawn polygon will be recorded and used as your submission.</li>
+	<li>Please include the building of the target store. <u>PLEASE DO NOT INCLUDE ANY PARKING LOT</u>.&nbsp;</li>
+	<li>Please exclude any other adjacent&nbsp;store or building. If other stores/dealers/restaurants&nbsp;share the same building, please include only the area of the building that is most likely occupied by the target store.</li>
+	<li>You must exclude all nearby roads.</li>
+	<li>Use street-view to confirm dealer and building identity&nbsp;(e.g., some stores&nbsp;are actually located across the street from the official&nbsp;address).</li>
+	<li>You can move the map (by holding down mouse left button and dragging), zoom-in and zoom-out.</li>
+	<li>If you cannot find the store, click the 'Can't Label' button <u>and explain reasons briefly in the next textbox (such as "cannot find it", "not sure", "wrong store name" ,etc). </u>If you click "Can't Label" when the target store is actually in the nearby area <u>or you don't fill the textbox with a reason</u>, we will reject your HIT.</li>
+</ul>
+</div>
+
+<p>The target store to be geofenced: <b>Best Buy</b></p>
+
+<p>Address: <b>367 Russell St,Hadley MA,01035</b></p>
+
+<p><input id="address" name="address" type="hidden" value="367 Russell St,Hadley MA,01035" /></p>
+
+<p>Geofence ID:<b>[REDACTED: 11-character alphanumeric string]</b></p>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=[REDACTED]&sensor=false&libraries=drawing"></script><script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<div id="map" style="width: 750px; height: 700px">&nbsp;</div>
+<script type="text/javascript">
+  var map;
+  var myLatLng = new google.maps.LatLng(37.4419, -122.1419);
+  var mapOptions = {
+          zoom: 17,
+          center: myLatLng,
+          mapTypeId: google.maps.MapTypeId.SATELLITE
+    };
+    map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+
+    drawingManager = new google.maps.drawing.DrawingManager({
+    drawingMode: google.maps.drawing.OverlayType.POLYLINE,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_CENTER,
+      drawingModes: [
+        google.maps.drawing.OverlayType.POLYLINE
+      ]
+    },
+    // markerOptions: {
+    //   icon: 'http://www.example.com/icon.png'
+    // },
+    circleOptions: {
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      strokeWeight: 5,
+      clickable: false,
+      zIndex: 1,
+      editable: true
+    }
+  });
+
+  // add lisenter to polygon complete
+  drawingManager.setMap(map);
+  google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+    if (event.type == google.maps.drawing.OverlayType.POLYLINE) {
+      coors = event.overlay.getPath();
+      displayNewCoors(coors);
+    }
+  });
+
+  /////////////////////////////////////////////////////////////////////
+
+  function displayNewCoors(coors) {
+    str = "";
+    var co = new Array();
+
+    for (var i =0; i < coors.getLength(); i++) {
+        latlng = coors.getAt(i);
+        str += latlng.lat() + "," + latlng.lng() + ";";
+    
+  }
+  document.getElementById('polygon').value = str;
+
+  }
+
+
+  function dontknow() {
+  document.getElementById('polygon').value = "NOT ABLE TO LABEL/TARGET NOT FOUND";
+  }
+
+
+ 
+  // loading the address in
+    var geocoder = new google.maps.Geocoder();
+    var address = document.getElementById('address').value;  
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var latLng = results[0].geometry.location;
+          map.setCenter(latLng);
+      } else {
+          alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  
+
+</script>
+
+<p><button onclick="dontknow()" type="button">Can't Label</button>&nbsp; Please state reason(s): <input id="reasons" name="reasons" size="20" type="text" /></p>
+
+<p>Polygon:</p>
+
+<p><input id="polygon" name="polygon" readonly="readonly" size="100" type="text" /></p>
+
+<p><input id="gid" name="gid" readonly="readonly" type="hidden" value="BBY_FM_MA_9" /></p>
+
+<p>&nbsp;</p>
+
+<h2>Examples</h2>
+
+<p><img height="200" src="https://s3-us-west-2.amazonaws.com/chiossys/bbby1.png" /><img height="200" src="https://s3-us-west-2.amazonaws.com/chiossys/bbby2.png" /><img height="200" src="https://s3-us-west-2.amazonaws.com/chiossys/bbby3.png" /></p>
+
+<p>
+<style type="text/css"><!--
+.highlight-box { border:solid 0px #98BE10; background:#FCF9CE; color:#222222; padding:4px; text-align:left; font-size: smaller;}
+-->
+</style>
+</p>
+<p class="text-center"><input type="submit" id="submitButton" class="btn btn-primary" value="Submit" /></p></form><script language="Javascript">turkSetAssignmentID();</script></body></html>

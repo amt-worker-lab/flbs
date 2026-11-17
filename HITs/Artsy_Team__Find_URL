@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>HIT</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script></head><body><form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit"><input type="hidden" value="" name="assignmentId" id="assignmentId" /><!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<section class="container" id="DataCollection" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+<div class="row col-xs-12 col-md-12"><!-- Instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Instructions</strong></div>
+
+<div class="panel-body">
+<p>Find the website address for this gallery.</p>
+
+<ul>
+	<li>Google the Gallery name to find the&nbsp;<strong>official website</strong> of the gallery.</li>
+	<li>Enter the full website address , e.g. http://www.gallery138.com</li>
+	<li>You can click the Google search link to save time</li>
+</ul>
+</div>
+</div>
+
+<table>
+	<tbody>
+		<tr>
+			<td><span style="font-family:verdana,geneva,sans-serif;"><label>Gallery name:</label></span></td>
+			<td><span style="font-family:verdana,geneva,sans-serif;">Distinction Gallery</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:verdana,geneva,sans-serif;"><label>Street:</label></span></td>
+			<td><span style="font-family:verdana,geneva,sans-serif;">317 E Grand Avenue</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:verdana,geneva,sans-serif;"><label>City, State, Postal, Country:</label></span></td>
+			<td><span style="font-family:verdana,geneva,sans-serif;">Escondido California, 92025 USA</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-family:verdana,geneva,sans-serif;"><strong>Google search link:</strong></span></td>
+			<td>
+			<div><span style="font-family:verdana,geneva,sans-serif;"><a href="https://www.google.com/#q=Distinction Gallery">https://www.google.com/#q=Distinction Gallery</a></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<div><label>Website address:</label> <input class="form-control" id="web_url" name="web_url" placeholder="http://" type="text" /></div>
+</div>
+</section>
+<!-- close container -->
+<style type="text/css">td {
+    font-size:1.0em;
+    padding: 5px 5px;
+}
+</style>
+<p class="text-center"><input type="submit" id="submitButton" class="btn btn-primary" value="Submit" /></p></form><script language="Javascript">turkSetAssignmentID();</script></body></html>
