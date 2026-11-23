@@ -61910,9 +61910,9 @@ Laurens Hammond, Chicago, Ill.**/
   // alexa.com scrape
   /**
   Access Key ID:
-  AKIAI6C437TQQKOAENCQ
+  _API_KEY_REDACTED_
   Secret Access Key:
-  51hOL3Dl3/q9/bfE9gMwvTmwkTF1c4gIARASA+/Y
+  _API_KEY_REDACTED_
    */
   var s = '  <li>In the top right hand text box, where it says "enter a site", type in the website name.&nbsp;</li>';
   if (ih.indexOf(s) != -1)
