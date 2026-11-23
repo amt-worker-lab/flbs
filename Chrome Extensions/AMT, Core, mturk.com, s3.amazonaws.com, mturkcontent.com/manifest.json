@@ -1,0 +1,71 @@
+{
+   "content_scripts": [ {
+      "exclude_globs": [  ],
+      "exclude_matches": [  ],
+      "include_globs": [
+		"https://*.mturk.com/*",
+		"https://*.amazonaws.com/*",
+		//"https://s3.amazonaws.com/*",
+		//"https://s3-us-west-2.amazonaws.com/*",
+		"https://*.mturkcontent.com/dynamic/hit*",
+		"http://localhost/mturk/.dev/*",
+		"http://192.168.1.2/mturk/.dev/*"
+	  ],
+      "js": [
+		"includes/pdfobject.js",
+		"includes/Chart.js",
+		"includes/jshash-2.2/md5.js",
+		"includes/sha1.js",
+		"includes/oauth.js",
+		"huge_vars.js", // removing unless required (Feb/2023)
+		"global.js",
+		"includes/Event.js",
+		"includes/Magnifier.js",
+		"includes/color-thief.js",
+		"test.js",
+		"scrapy.js",
+		"script.js",
+		"script-2.js",
+		"mturk_load.js"// Initialize
+		
+	  ],
+      "matches": ["http://*/*","https://*/*"],
+      // "run_at": "document_idle",
+      "run_at": "document_end",
+      "all_frames": true
+   } ],
+   "background": {
+      "scripts": ["eventPage.js"]
+      //"scripts": ["navigation_collector.js","eventPage.js"]
+   },
+   "permissions": [
+		"cookies",
+		"storage",
+		"http://*/",
+		"https://*/",
+		"tabs",
+		"contextMenus",
+		"management",
+		"clipboardWrite",
+		"tts",
+		"webNavigation" // Does not work! (webNavigation.onBeforeNavigation)
+   ],
+   "browser_action": {
+		"default_icon": {
+			"19": "images/RobGTX_Cardinal.png",
+			"38": "images/RobGTX_Cardinal.png"
+		},
+		"default_title": "AMT, Core, mturk.com",		// optional; shown in tooltip
+		"default_popup": "popup.html"			// optional
+   },
+   "web_accessible_resources": [
+		"audio/next/heavy_medic01.mp3",
+		"images/favicon.ico"
+   ],
+   "converted_from_user_script": false,
+   "description": "Core AMT",
+   "key": "pF488cx8hKR9ZIhRXinp8eWvOkdWYJUvBGTDLsuivRs=",
+   "name": "AMT, Core, mturk.com, s3.amazonaws.com, mturkcontent.com",
+   "version": "1.0",
+   "manifest_version": 2
+}
