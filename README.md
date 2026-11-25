@@ -4,6 +4,7 @@
 - `sql/`: database schema backups.
 - `HITs/`: saved HIT pages used as test fixtures.
 - `Chrome Extensions/`: browser extensions, including the AMT Core extension and its test runner.
+- `python`: Python/Scrapy-based domain-scoped website crawling with configurable crawl limits.
 
 ## Testing
 
